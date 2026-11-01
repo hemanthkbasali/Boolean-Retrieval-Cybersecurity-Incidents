@@ -1,0 +1,117 @@
+{% extends "finder/base.html" %}
+{% load highlight %}
+
+{% block content %}
+<div class="work">
+
+  <section class="query-area">
+    <form id="search-form" method="get" action="/">
+      <label for="query">Boolean query</label>
+      <div class="row">
+        <div class="field">
+          <svg class="field-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="query" name="q" type="text" value="{{ query }}" placeholder="malware AND NOT ransomware" autocomplete="off" autofocus>
+        </div>
+        <button type="submit">Search</button>
+      </div>
+    </form>
+    <div class="examples">
+      <span>Examples</span>
+      <button type="button" class="chip">ransomware</button>
+      <button type="button" class="chip">phishing AND email</button>
+      <button type="button" class="chip">malware OR ransomware</button>
+      <button type="button" class="chip">malware AND NOT ransomware</button>
+      <button type="button" class="chip">ddos OR botnet</button>
+      <button type="button" class="chip">breach AND credentials</button>
+    </div>
+  </section>
+
+  <aside class="trace-area" aria-label="Query trace">
+    {% if error %}
+      <h2>Query trace</h2>
+      <p class="trace-empty">The query could not be run.</p>
+    {% elif searched %}
+      <h2>Query trace</h2>
+      <p class="trace-intro">Each row is one set operation on document ids. The bar shows how many of the {{ doc_count }} incidents remain.</p>
+      <ol class="trace">
+        {% for s in steps %}
+          <li class="op-{{ s.op|lower }}">
+            <span class="step-no">{{ s.number }}</span>
+            <div class="step-body">
+              <p class="step-text">{{ s.text }}</p>
+              <div class="meter" aria-hidden="true"><span style="width: {{ s.width }}%"></span></div>
+              <p class="step-ids">{{ s.ids|join:", "|default:"no documents" }}</p>
+            </div>
+            <span class="step-count">{{ s.count }}</span>
+          </li>
+        {% endfor %}
+      </ol>
+      <p class="trace-total"><span>Result</span> <strong>{{ results|length }}</strong> of {{ doc_count }} incidents</p>
+    {% else %}
+      <h2>Operators</h2>
+      <dl class="guide">
+        <dt>AND</dt><dd>Both terms must appear. The result gets smaller.</dd>
+        <dt>OR</dt><dd>Either term may appear. The result gets bigger.</dd>
+        <dt>NOT</dt><dd>Leaves out incidents that contain the term.</dd>
+      </dl>
+      <p class="trace-empty">Run a query and every step will be listed here with the number of incidents that remain.</p>
+      <h2>How it works</h2>
+      <ol class="how">
+        <li><strong>Documents.</strong> {{ doc_count }} incident reports are read from the database.</li>
+        <li><strong>Tokenize.</strong> <code>tokenize()</code> lowercases the text, keeps letters and drops stop words.</li>
+        <li><strong>Inverted index.</strong> <code>build_index()</code> maps each of {{ term_count }} terms to the ids of its documents.</li>
+        <li><strong>Parse the query.</strong> <code>parse_query()</code> splits it into terms and AND, OR, NOT.</li>
+        <li><strong>Set operations.</strong> <code>search()</code> uses intersection for AND, union for OR and complement for NOT.</li>
+      </ol>
+    {% endif %}
+  </aside>
+
+  <section class="results-area">
+    {% if error %}
+      <p class="error" role="alert">{{ error }}</p>
+    {% elif searched %}
+      <h2 class="results-title">{{ results|length }} incident{{ results|length|pluralize }} for <code>{{ query }}</code></h2>
+      {% if unknown %}
+        <p class="note">Not found in any incident: <strong>{{ unknown|join:", " }}</strong></p>
+      {% endif %}
+      {% for doc in results %}
+        <article class="result">
+          <span class="doc-id">{{ doc.id }}</span>
+          <div>
+            <div class="result-head">
+              <h3>{{ doc.title|highlight:terms }}</h3>
+              <span class="tag">{{ doc.type }}</span>
+            </div>
+            <p>{{ doc.description|highlight:terms }}</p>
+          </div>
+        </article>
+      {% empty %}
+        <p class="empty">No incident satisfies this query. Try OR instead of AND, or remove a NOT.</p>
+      {% endfor %}
+    {% else %}
+      <dl class="stats">
+        <div><dt>Documents</dt><dd>{{ doc_count }}</dd></div>
+        <div><dt>Indexed terms</dt><dd>{{ term_count }}</dd></div>
+        <div><dt>Incident types</dt><dd>{{ type_total }}</dd></div>
+        <div><dt>Test queries</dt><dd>{{ test_count }}</dd></div>
+      </dl>
+      <div class="collection">
+        <h2>What is in the collection</h2>
+        <p class="meta">{{ doc_count }} incident reports by type. Click a type to search it.</p>
+        <ul class="types">
+          {% for t in types %}
+            <li>
+              <a href="?q={{ t.query|urlencode }}">
+                <span class="type-name">{{ t.name }}</span>
+                <span class="type-bar" style="width: {{ t.width }}%"></span>
+                <span class="type-count">{{ t.count }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </section>
+
+</div>
+{% endblock %}

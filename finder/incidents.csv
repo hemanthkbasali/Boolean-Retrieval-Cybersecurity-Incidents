@@ -1,0 +1,61 @@
+id,title,type,description
+1,Phishing email targets bank customers,phishing,Attackers sent a fake email pretending to be a bank and asked customers to enter login credentials on a cloned website.
+2,Ransomware hits city hospital,ransomware,Ransomware encrypted patient records at a hospital and the attackers demanded bitcoin payment to restore the files.
+3,DDoS attack takes down e-commerce site,ddos,A botnet flooded the web server with traffic and the online shop stayed offline for six hours during a sale.
+4,SQL injection exposes student database,sql injection,An attacker used SQL injection on a login form of a university portal and dumped student records and passwords.
+5,Malware spreads through USB drives,malware,Infected USB drives carried malware that copied itself across office computers and stole saved credentials.
+6,Data breach leaks customer credentials,data breach,A misconfigured cloud server exposed millions of customer emails and passwords in a large data breach.
+7,Insider threat copies confidential files,insider threat,An employee copied confidential design files to a personal drive before leaving the company.
+8,Spear phishing targets finance team,phishing,A targeted email impersonating the CEO tricked the finance team into sharing credentials and approving a fake invoice.
+9,Ransomware locks school network,ransomware,Ransomware spread through a school network after a teacher opened an email attachment and locked all lab computers.
+10,Botnet used for DDoS on university,ddos,Compromised devices in a botnet sent massive traffic to the university server and stopped online exams.
+11,Trojan malware steals banking details,malware,A trojan hidden in a free software download recorded keystrokes and stole banking credentials from users.
+12,Credential stuffing attack on streaming service,data breach,Attackers reused stolen passwords from an old breach to log into thousands of streaming accounts.
+13,Phishing SMS asks users to update KYC,phishing,Users received a fake SMS asking them to update KYC details through a link which captured their bank credentials.
+14,Ransomware gang targets manufacturing plant,ransomware,A ransomware attack halted production at a manufacturing plant and the gang threatened to leak stolen data.
+15,Cross-site scripting found in forum,xss,A stored cross-site scripting flaw in a public forum let attackers run scripts in the browsers of other users.
+16,Insider sells customer data,insider threat,A support employee sold customer phone numbers and addresses to a third party causing a data breach.
+17,Spyware installed on journalist phone,malware,Spyware delivered through a malicious link gave attackers access to messages and the microphone of a journalist phone.
+18,DDoS extortion against online game,ddos,Attackers demanded money from a gaming company and launched a DDoS attack on the game servers when it refused.
+19,SQL injection on retail website,sql injection,A retail website search box was vulnerable to SQL injection and attackers extracted credit card records.
+20,Unpatched server exploited by ransomware,ransomware,Attackers exploited an unpatched server vulnerability to enter the network and deploy ransomware on file servers.
+21,Man in the middle attack on public wifi,mitm,An attacker on public wifi intercepted traffic of travellers and captured login credentials of unencrypted sites.
+22,Data breach at healthcare provider,data breach,Hackers broke into a healthcare provider system and stole patient medical records in a serious data breach.
+23,Fake antivirus malware campaign,malware,A pop up advertised a fake antivirus program that installed malware and displayed false virus alerts.
+24,Phishing page imitates university portal,phishing,Students received an email with a link to a fake university portal that collected their login credentials.
+25,Former employee deletes company data,insider threat,A former employee still had active access and deleted shared project files out of revenge.
+26,Cryptojacking malware on cloud servers,malware,Malware installed on cloud servers used company computing power to mine cryptocurrency and slowed all services.
+27,DNS spoofing redirects users,dns spoofing,Attackers poisoned a DNS cache so users who typed a bank address were redirected to a fake website.
+28,Weak password leads to account takeover,account takeover,An administrator used a weak password and attackers guessed it and took over the email account.
+29,Ransomware attack on law firm,ransomware,A law firm lost access to case files after ransomware encrypted its servers and backups were also infected.
+30,Social engineering call tricks help desk,social engineering,A caller pretending to be an employee convinced the help desk to reset a password and gained access to internal systems.
+31,Ransomware demands payment from retail chain,ransomware,Ransomware encrypted point of sale servers of a retail chain and attackers demanded payment in bitcoin.
+32,Phishing email delivers malware attachment,phishing,A phishing email carried a malware attachment disguised as an invoice and infected the accounts computer.
+33,DDoS attack on government portal,ddos,A DDoS attack from thousands of hijacked devices made a government tax portal unreachable.
+34,Data breach exposes employee records,data breach,A breach of the HR system exposed employee salary details and personal records.
+35,SQL injection bypasses admin login,sql injection,An SQL injection payload in the admin login form let an attacker bypass authentication.
+36,Insider misuses admin privileges,insider threat,A system administrator misused privileges to read the mailboxes of senior managers.
+37,Worm malware spreads across network,malware,A worm malware spread automatically between computers using an unpatched file sharing flaw.
+38,Phishing kit steals social media credentials,phishing,A phishing website copied a social media login page and stole credentials of thousands of users.
+39,Credentials leaked on dark web forum,data breach,Stolen credentials of company staff were posted for sale on a dark web forum after an earlier breach.
+40,Ransomware exploits remote desktop,ransomware,Attackers guessed a weak remote desktop password and deployed ransomware on the company servers.
+41,Botnet infects smart cameras,malware,Malware infected thousands of smart cameras and added them to a botnet used for attacks.
+42,Supply chain attack through software update,malware,Attackers added malware to a trusted software update which was installed by many customers.
+43,Brute force attack on VPN,account takeover,Repeated password guessing against the VPN gateway finally succeeded on an account with a weak password.
+44,Phishing voice call targets bank customers,social engineering,A caller posing as bank staff asked victims to share one time passwords and drained their accounts.
+45,Lost laptop causes data breach,data breach,An unencrypted laptop with client files was stolen from a car causing a data breach.
+46,Ransomware double extortion on logistics firm,ransomware,A logistics firm was hit by ransomware and the gang published stolen files when it refused to pay.
+47,Employee clicks malicious link,malware,An employee clicked a link in a message and downloaded malware that gave attackers remote access.
+48,DDoS on DNS provider,ddos,A large DDoS attack on a DNS provider made many popular websites unavailable.
+49,Rogue access point steals data,mitm,A rogue wifi access point in a cafe captured credentials entered by customers.
+50,SQL injection in mobile app backend,sql injection,The backend of a mobile app was open to SQL injection and leaked user details.
+51,Insider leaks source code,insider threat,A developer leaked proprietary source code to a competitor before joining them.
+52,Phishing targets hospital staff,phishing,Staff at a hospital received an email with a fake login link that captured their credentials.
+53,Ransomware attack on university,ransomware,Ransomware encrypted research data at a university and exam results were delayed.
+54,Misconfigured database exposes records,data breach,A database left open on the internet exposed customer records without any password.
+55,Keylogger malware on kiosk,malware,A keylogger malware on a public kiosk recorded passwords typed by visitors.
+56,Password reuse leads to takeover,account takeover,A user reused one password on many sites and attackers used leaked credentials to take over accounts.
+57,Fake job offer social engineering,social engineering,Fraudsters offered fake jobs by email and asked applicants to install software that stole data.
+58,XSS in shopping site comments,xss,An XSS flaw in product comments let attackers steal session cookies of shoppers.
+59,Botnet launches DDoS on bank,ddos,A botnet flooded a bank website with requests and customers could not log in for hours.
+60,Contractor accesses restricted data,insider threat,A contractor with extra access viewed restricted files that were unrelated to the assigned work.

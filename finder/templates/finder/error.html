@@ -1,0 +1,7 @@
+{% extends "finder/base.html" %}
+
+{% block content %}
+<h2 class="page-title">Page not available</h2>
+<p class="error" role="alert">{{ message }}</p>
+<p class="lead"><a href="{% url 'home' %}">Back to search</a></p>
+{% endblock %}

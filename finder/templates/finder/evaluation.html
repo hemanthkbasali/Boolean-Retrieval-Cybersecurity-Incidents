@@ -1,0 +1,44 @@
+{% extends "finder/base.html" %}
+
+{% block content %}
+<h2 class="page-title">Evaluation</h2>
+<p class="summary">
+  <span><strong>{{ rows|length }}</strong> test queries</span>
+  <span>Average precision <strong>{{ avg_p }}</strong></span>
+  <span>Average recall <strong>{{ avg_r }}</strong></span>
+  <span><strong>{{ perfect }}</strong> queries with both at 1.0</span>
+</p>
+<p class="lead">Each test query is compared with the incidents a person judged relevant. Precision is the share of retrieved incidents that are relevant. Recall is the share of relevant incidents that were retrieved.</p>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Query</th><th>Retrieved</th><th>Relevant</th><th class="num">Precision</th><th class="num">Recall</th></tr>
+    </thead>
+    <tbody>
+      {% for r in rows %}
+        <tr>
+          <td class="mono">{{ r.query }}</td>
+          <td class="mono">{{ r.retrieved|join:", " }}</td>
+          <td class="mono">{{ r.relevant|join:", " }}</td>
+          <td class="num">{{ r.precision }}</td>
+          <td class="num">{{ r.recall }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr><td colspan="3">Average over {{ rows|length }} queries</td><td class="num">{{ avg_p }}</td><td class="num">{{ avg_r }}</td></tr>
+    </tfoot>
+  </table>
+</div>
+
+<section class="notes">
+  <h2>What the scores show</h2>
+  <ul>
+    <li><strong>Precision is high.</strong> Boolean matching is exact, so every retrieved incident really contains the query words.</li>
+    <li><strong>Recall drops when wording differs.</strong> Incident 12 says "stolen passwords", so <code>breach AND credentials</code> misses it.</li>
+    <li><strong>Precision drops for general words.</strong> <code>insider OR employee</code> also returns incidents 30, 34 and 47, where "employee" is only a detail.</li>
+    <li><strong>There is no ranking.</strong> A document either matches or it does not, so results are listed by id.</li>
+  </ul>
+</section>
+{% endblock %}

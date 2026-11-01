@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.sqlite3
+*.log
+*.err
+.venv/
+venv/
+.claude/
+.codegraph/
+.impeccable/
+
+# not part of the repository
+report/
+demo_video/
+DESIGN.md
+PRODUCT.md

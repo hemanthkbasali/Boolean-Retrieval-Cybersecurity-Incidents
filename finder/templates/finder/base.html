@@ -1,0 +1,45 @@
+{% load highlight %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Incident Search</title>
+  <link rel="icon" href="data:,">
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "redbeige"; } catch (e) {}</script>
+  <link rel="stylesheet" href="{% static_v 'finder/style.css' %}">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap bar">
+      <div class="brand">
+        <h1>Boolean Retrieval for Cybersecurity Incidents</h1>
+        <p class="sub">Information Retrieval (BCY504B) &middot; CCA-1 Mini Project</p>
+      </div>
+      <div class="side">
+      <div class="themes" role="group" aria-label="Colour theme">
+        <button type="button" class="swatch" data-choice="redbeige" title="Red and beige" aria-label="Red and beige theme"></button>
+        <button type="button" class="swatch" data-choice="wine" title="Wine and gold" aria-label="Wine and gold theme"></button>
+        <button type="button" class="swatch" data-choice="midnight" title="Midnight and gold" aria-label="Midnight and gold theme"></button>
+        <button type="button" class="swatch" data-choice="emerald" title="Emerald and champagne" aria-label="Emerald and champagne theme"></button>
+        <button type="button" class="swatch" data-choice="charcoal" title="Charcoal and amber" aria-label="Charcoal and amber theme"></button>
+      </div>
+      <nav aria-label="Pages">
+        <a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}class="active" aria-current="page"{% endif %}>Search</a>
+        <a href="{% url 'dataset' %}" {% if request.resolver_match.url_name == 'dataset' %}class="active" aria-current="page"{% endif %}>Dataset</a>
+        <a href="{% url 'index_page' %}" {% if request.resolver_match.url_name == 'index_page' %}class="active" aria-current="page"{% endif %}>Inverted index</a>
+        <a href="{% url 'evaluation' %}" {% if request.resolver_match.url_name == 'evaluation' %}class="active" aria-current="page"{% endif %}>Evaluation</a>
+      </nav>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <div class="wrap">
+      Hemanth K Basali &middot; 1DT24CY012 &middot; Dayananda Sagar Academy of Technology and Management &middot; Dept. of CSE (Cyber Security)
+    </div>
+  </footer>
+  <script src="{% static_v 'finder/script.js' %}"></script>
+</body>
+</html>

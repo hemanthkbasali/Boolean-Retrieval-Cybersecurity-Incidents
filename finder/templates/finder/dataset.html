@@ -1,0 +1,30 @@
+{% extends "finder/base.html" %}
+
+{% block content %}
+<h2 class="page-title">Document collection</h2>
+<p class="summary">
+  <span><strong>{{ rows|length }}</strong> incident reports</span>
+  <span><strong>{{ type_count }}</strong> incident types</span>
+  <span>Written by the student, synthetic data</span>
+</p>
+<p class="lead">Every report is one document. Its title, type and description are the text that gets indexed.</p>
+
+<label for="table-filter">Filter the table</label>
+<input id="table-filter" class="filter" type="text" placeholder="type any word, e.g. phishing" autocomplete="off">
+
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Id</th><th>Title</th><th>Type</th><th>Description</th></tr></thead>
+    <tbody>
+      {% for d in rows %}
+        <tr>
+          <td class="mono">{{ d.id }}</td>
+          <td><strong>{{ d.title }}</strong></td>
+          <td>{{ d.type }}</td>
+          <td>{{ d.description }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

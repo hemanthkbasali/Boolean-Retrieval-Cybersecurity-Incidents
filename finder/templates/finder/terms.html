@@ -1,0 +1,25 @@
+{% extends "finder/base.html" %}
+
+{% block content %}
+<h2 class="page-title">Inverted index</h2>
+<p class="summary">
+  <span><strong>{{ term_count }}</strong> terms</span>
+  <span><strong>{{ doc_count }}</strong> documents</span>
+  <span><strong>{{ average }}</strong> documents per term on average</span>
+</p>
+<p class="lead">Each term points to the ids of the incident reports that contain it. A query is answered by combining these lists with set operations.</p>
+
+<label for="table-filter">Filter the terms</label>
+<input id="table-filter" class="filter" type="text" placeholder="type part of a term, e.g. ransom" autocomplete="off">
+
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Term</th><th class="num">Documents</th><th>Document ids</th></tr></thead>
+    <tbody>
+      {% for term, count, ids in terms %}
+        <tr><td class="mono">{{ term }}</td><td class="num">{{ count }}</td><td class="mono">{{ ids|join:", " }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
