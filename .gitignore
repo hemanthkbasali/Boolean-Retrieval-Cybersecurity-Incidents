@@ -5,7 +5,6 @@ __pycache__/
 *.err
 .venv/
 venv/
-.claude/
 .codegraph/
 .impeccable/
 
