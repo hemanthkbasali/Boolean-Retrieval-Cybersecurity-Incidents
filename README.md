@@ -1,10 +1,14 @@
+<div align="center">
+
 # Boolean Retrieval for Cybersecurity Incidents
 
 Search cybersecurity incident reports with `AND`, `OR` and `NOT`, and see how every answer was found.
 
 <img src="https://skillicons.dev/icons?i=python,django,sqlite,html,css,js" alt="Python, Django, SQLite, HTML, CSS, JavaScript">
 
-Information Retrieval (BCY504B) mini project.
+Information Retrieval (BCY504B) mini project
+
+</div>
 
 ## What it does
 
