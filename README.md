@@ -46,11 +46,6 @@ finder/incidents.csv    the 60 reports
 test_queries.py         prints the evaluation in the terminal
 ```
 
-## Author
-
-Hemanth K Basali, 1DT24CY012
-Dayananda Sagar Academy of Technology and Management
-
 ## License
 
 MIT
